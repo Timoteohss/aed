@@ -1,5 +1,9 @@
 # Algoritmos e Estrutura de Dados
 
+Compilado de estrutura de dados e algoritmos básicos implementados em C de forma genérica, para que se possa facilmente definir o tipo de dado da estrutura.
+
+Este repositório ainda está na fase Alpha.
+
 ### Estruturas que estão nesse compilado
 
 - [x] Lista simplesmente encadeada
@@ -21,3 +25,20 @@
 - [ ] Heap Sort
 - [ ] Merge Sort
 - [ ] Insertion Sort
+
+## Dependências
+
+* cmake
+
+## Como compilar
+
+```
+    git clone http://github.com/timoteohss/aed.git
+    cd aed
+    ccmake
+    make
+``` 
+
+## Documentação
+
+Exemplos disponível na main, cada biblioteca está comentada com as especificações de cada estrutura/algoritmo
