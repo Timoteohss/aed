@@ -35,8 +35,8 @@ Este repositório ainda está na fase Alpha.
 ```
     git clone http://github.com/timoteohss/aed.git
     cd aed
-    ccmake
-    make
+    cmake .
+    make 
 ``` 
 
 ## Documentação
