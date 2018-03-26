@@ -18,16 +18,16 @@ void imprimeHannoi(Pilha *p1,Pilha *p2,Pilha *p3) {
 
 int main() {
 
-    int tamanho = 3;
-    int *vetorInteiro = (int*)malloc(tamanho * sizeof(int));
+    int qtdDiscos = 3;
+    int *vetorInteiro = (int*)malloc(qtdDiscos * sizeof(int));
 
     Pilha *p1 = criaPilha();
     Pilha *p2 = criaPilha();
     Pilha *p3 = criaPilha();
 
 
-    for(int i = 0; i < 3; i++) {
-        vetorInteiro[i] = 3 - i;
+    for(int i = 0; i < qtdDiscos; i++) {
+        vetorInteiro[i] = qtdDiscos - i;
         empilha(p1,&vetorInteiro[i]);
     }
 
