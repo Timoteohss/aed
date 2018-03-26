@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "algoritmos/utilidades.h"
-#include "algoritmos/insertionSort.h"
+#include "algoritmos/metodosOrdenacao.h"
 #include "algoritmos/buscaBinaria.h"
 #include "algoritmos/fila.h"
 #include "algoritmos/listaDupla.h"

@@ -2,7 +2,7 @@
 // Created by timoteo on 26/03/18.
 //
 
-#include "insertionSort.h"
+#include "metodosOrdenacao.h"
 #include "utilidades.h"
 
 void insertionSort(int *A, int tamanho) {

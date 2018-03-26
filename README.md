@@ -4,6 +4,8 @@ Compilado de estrutura de dados e algoritmos básicos implementados em C de form
 
 Este repositório ainda está na fase Alpha.
 
+Precisa de testes no Windows
+
 ### Estruturas que estão nesse compilado
 
 - [x] Lista simplesmente encadeada
@@ -29,6 +31,7 @@ Este repositório ainda está na fase Alpha.
 ## Dependências
 
 * cmake
+* GCC ou outro compilador C
 
 ## Como compilar
 
