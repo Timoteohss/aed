@@ -22,11 +22,12 @@ Precisa de testes no Windows
 ### Algoritmos que estão nesse compilado
 
 - [x] Busca Binária
-- [ ] Bubble Sort
+- [x] Bubble Sort
 - [x] Insertion Sort
+- [x] Selection Sort
 - [ ] Heap Sort
-- [ ] Merge Sort
-- [ ] Insertion Sort
+- [x] Merge Sort
+- [ ] Quick Sort
 
 ## Dependências
 

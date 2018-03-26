@@ -15,11 +15,16 @@ int main() {
 
 //Testes com fila e utilidades
 
-    int tamanho = 10;
+    int tamanho = 200000;
     int *vetorInteiro = (int*)malloc(tamanho * sizeof(int));
     vetorInteiro = criaArrayInteiros(tamanho);
 
     imprimeArrayInteiros(vetorInteiro,tamanho);
+    mergeSort(vetorInteiro,0,tamanho);
+    imprimeArrayInteiros(vetorInteiro,tamanho);
+
+
+
 
 
     /*listaSimples *A = criaListaApartirDeArrayDeInteiros(vetorInteiro,tamanho);

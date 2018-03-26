@@ -6,5 +6,8 @@
 #define AED_INSERTIONSORT_H
 
 void insertionSort(int *A, int tamanho);
+void bubbleSort(int *A, int tamanho);
+void selectionSort(int *A, int tamanho);
+void mergeSort(int *A, int baixo, int alto);
 
 #endif //AED_INSERTIONSORT_H
