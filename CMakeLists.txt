@@ -3,4 +3,5 @@ project(aed C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(aed main.c algoritmos/utilidades.h algoritmos/utilidades.c algoritmos/listaSimples.c algoritmos/listaSimples.h algoritmos/pilha.c algoritmos/pilha.h algoritmos/fila.c algoritmos/fila.h algoritmos/buscaBinaria.c algoritmos/buscaBinaria.h algoritmos/listaDupla.c algoritmos/listaDupla.h)
+add_executable(aed main.c algoritmos/utilidades.h algoritmos/utilidades.c algoritmos/listaSimples.c algoritmos/listaSimples.h algoritmos/pilha.c algoritmos/pilha.h algoritmos/fila.c algoritmos/fila.h algoritmos/buscaBinaria.c algoritmos/buscaBinaria.h algoritmos/listaDupla.c algoritmos/listaDupla.h algoritmos/insertionSort.c algoritmos/insertionSort.h)
+add_executable(hanoi hanoi.c algoritmos/utilidades.h algoritmos/utilidades.c algoritmos/pilha.h algoritmos/pilha.c algoritmos/listaSimples.c algoritmos/listaSimples.h)

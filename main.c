@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "algoritmos/utilidades.h"
+#include "algoritmos/insertionSort.h"
 #include "algoritmos/buscaBinaria.h"
 #include "algoritmos/fila.h"
 #include "algoritmos/listaDupla.h"
@@ -20,9 +21,6 @@ int main() {
 
     imprimeArrayInteiros(vetorInteiro,tamanho);
 
-    int achou = buscaBinaria(vetorInteiro,tamanho,3881);
-
-    //printf("\n%d",achou);
 
     /*listaSimples *A = criaListaApartirDeArrayDeInteiros(vetorInteiro,tamanho);
 

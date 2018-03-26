@@ -21,7 +21,7 @@ Este repositório ainda está na fase Alpha.
 
 - [x] Busca Binária
 - [ ] Bubble Sort
-- [ ] Insertion Sort
+- [x] Insertion Sort
 - [ ] Heap Sort
 - [ ] Merge Sort
 - [ ] Insertion Sort
