@@ -7,11 +7,11 @@
 #include "algoritmos/pilha.h"
 
 void imprimeHannoi(Pilha *p1,Pilha *p2,Pilha *p3) {
-    printf("\n----------\n");
+    printf("\n----------\n Torre 1: ");
     imprimeListaSimples(p1->lista);
-    printf("\n");
+    printf("\n Torre 2: ");
     imprimeListaSimples(p2->lista);
-    printf("\n");
+    printf("\n Torre 3:");
     imprimeListaSimples(p3->lista);
     printf("\n----------\n");
 }

@@ -5,7 +5,6 @@
 #ifndef AED_LISTASIMPLES_H
 #define AED_LISTASIMPLES_H
 
-#include <libzvbi.h>
 #include "utilidades.h"
 
 
