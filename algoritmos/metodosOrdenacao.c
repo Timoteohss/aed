@@ -93,5 +93,37 @@ void mergeSort(int *A, int baixo, int alto) {
     }
 }
 
+int escolhePivo (int baixo, int alto) { return alto; }
+
+int particiona(int *A, int baixo, int alto) {
+    int i;
+    int indexPivo = escolhePivo(baixo,alto);
+    int valorPivo = A[indexPivo];
+    int posicao = baixo;
+
+    troca(&A[alto], &A[indexPivo]);
+
+    for(i = baixo; i < alto; i++) {
+        if(A[i] < valorPivo) {
+            troca(&A[i], &A[posicao]);
+            posicao++;
+        }
+    }
+
+    troca(&A[posicao], &A[indexPivo]);
+    return posicao;
+
+
+
+}
+
+void quickSort(int *A, int baixo, int alto) {
+    if(baixo < alto) {
+        int p = particiona(A,baixo,alto);
+        quickSort(A, baixo, p - 1);
+        quickSort(A, p + 1, alto);
+    }
+}
+
 
 

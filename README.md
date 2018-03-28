@@ -27,7 +27,7 @@ Precisa de testes no Windows
 - [x] Selection Sort
 - [ ] Heap Sort
 - [x] Merge Sort
-- [ ] Quick Sort
+- [x] Quick Sort
 
 ## Dependências
 
