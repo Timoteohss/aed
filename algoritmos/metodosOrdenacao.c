@@ -4,11 +4,9 @@
 
 #include <stdlib.h>
 #include "fila.h"
+#include "limits.h"
 #include "metodosOrdenacao.h"
 #include "utilidades.h"
-
-
-void mergeA(int *A, int baixo, int meio, int alto);
 
 void insertionSort(int *A, int tamanho) {
     int i, j;
@@ -44,18 +42,6 @@ void selectionSort(int *A, int tamanho) {
     }
 }
 
-void mergeSort(int *A, int baixo, int alto) {
-    int meio;
-
-    if( baixo < alto ) {
-        meio = (int)((baixo+alto)/2);
-        mergeSort(A, baixo, meio);
-        mergeSort(A, meio+1,alto);
-
-        mergeA(A,baixo,meio,alto);
-    }
-}
-
 void mergeA(int *A, int baixo, int meio, int alto) {
     int i;
     int *tmp;
@@ -78,8 +64,8 @@ void mergeA(int *A, int baixo, int meio, int alto) {
     i = baixo;
     while(!filaEstaVazia(f1) && !filaEstaVazia(f2)) {
 
-        int val1 = *(int*)verFinalDaFila(f1);
-        int val2 = *(int*)verFinalDaFila(f2);
+        int val1 = verFinalDaFila(f1) ? *(int*)verFinalDaFila(f1) : INT_MAX;
+        int val2 = verFinalDaFila(f2) ? *(int*)verFinalDaFila(f2) : INT_MAX;
 
         if(val1 <= val2) {
             A[i++] = *(int *)desenfila(f1);
@@ -94,4 +80,18 @@ void mergeA(int *A, int baixo, int meio, int alto) {
     deletaFila(f1);
     deletaFila(f2);
 }
+
+void mergeSort(int *A, int baixo, int alto) {
+    int meio;
+
+    if( baixo < alto ) {
+        meio = (int)((baixo+alto)/2);
+        mergeSort(A, baixo, meio);
+        mergeSort(A, meio+1,alto);
+
+        mergeA(A,baixo,meio,alto);
+    }
+}
+
+
 

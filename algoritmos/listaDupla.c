@@ -42,13 +42,20 @@ listaDupla *criaListaDupla(struct operacaoDados *ope) {
 /// \param no - O NO a ser deletado da lista
 void deletaListaDuplaNo(listaDupla *lista, listaDuplaNo *no) {
 
-    if(no == NULL) return;
+    if(no == NULL)
+        return;
 
-    if(no == lista->topo) lista->topo = no->prox;
+    if(no == lista->topo)
+        lista->topo = no->prox ? no->prox : no->ante ? no->ante : NULL;
 
-    if(no->prox != NULL) no->prox->ante = no->ante;
+    if(no == lista->fim)
+        lista->fim = no->ante ? no->ante : no->prox ? no->prox : NULL;
 
-    if(no->ante != NULL) no->ante->prox = no->prox;
+    if(no->prox != NULL)
+        no->prox->ante = no->ante;
+
+    if(no->ante != NULL)
+        no->ante->prox = no->prox;
 
     free(no);
 }

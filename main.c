@@ -15,9 +15,22 @@ int main() {
 
 //Testes com fila e utilidades
 
-    int tamanho = 200000;
+    int tamanho = 10000;
     int *vetorInteiro = (int*)malloc(tamanho * sizeof(int));
     vetorInteiro = criaArrayInteiros(tamanho);
+
+    /*Fila *f1 = criaFila();
+    printf("%d\n",filaEstaVazia(f1));
+
+
+    enfilera(f1,&vetorInteiro[66]);
+    imprimeListaDupla(f1->lista);
+    printf("%d\n",filaEstaVazia(f1));
+    desenfila(f1);
+
+
+
+    printf("%d",filaEstaVazia(f1));*/
 
     imprimeArrayInteiros(vetorInteiro,tamanho);
     mergeSort(vetorInteiro,0,tamanho);

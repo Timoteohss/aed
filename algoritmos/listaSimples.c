@@ -63,7 +63,6 @@ void imprimeListaSimples(listaSimples *lista) {
     }
 }
 
-
 //Operações especiais
 
 /// Cria uma lista simples a partir de um vetor de inteiros dado
