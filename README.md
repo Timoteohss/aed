@@ -12,7 +12,7 @@ Precisa de testes no Windows
 - [x] Lista duplamente encadeada
 - [x] Fila
 - [x] Pilha
-- [ ] Árvore Binária
+- [x] Árvore Binária
 - [ ] Árvore AVL
 - [ ] Árvore Rubro Negra
 - [ ] Árvore B (Quem sabe)

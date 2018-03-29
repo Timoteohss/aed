@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "algoritmos/utilidades.h"
+#include "algoritmos/arvoreAVL.h"
 #include "algoritmos/metodosOrdenacao.h"
+#include "algoritmos/arvoreBinaria.h"
 #include "algoritmos/buscaBinaria.h"
 #include "algoritmos/fila.h"
 #include "algoritmos/listaDupla.h"
@@ -15,9 +17,10 @@ int main() {
 
 //Testes com fila e utilidades
 
-    int tamanho = 100000;
+    int tamanho = 10;
     int *vetorInteiro = (int*)malloc(tamanho * sizeof(int));
     vetorInteiro = criaArrayInteiros(tamanho);
+    imprimeArrayInteiros(vetorInteiro,tamanho);
 
     /*Fila *f1 = criaFila();
     printf("%d\n",filaEstaVazia(f1));
@@ -31,11 +34,37 @@ int main() {
 
 
     printf("%d",filaEstaVazia(f1));*/
+/*
 
     imprimeArrayInteiros(vetorInteiro,tamanho);
     quickSort(vetorInteiro,0,tamanho);
     selectionSort(vetorInteiro,tamanho);
     imprimeArrayInteiros(vetorInteiro,tamanho);
+*/
+
+    arvoreAVL *A = criaArvoreAVL(NULL);
+    int *V = (int*)malloc(11*sizeof(int));
+    V[0] = 50;
+    V[1] = 40;
+    V[2] = 60;
+    V[3] = 30;
+    V[4] = 70;
+    V[5] = 20;
+    V[6] = 80;
+    V[7] = 35;
+    V[8] = 65;
+    V[9] = 45;
+    V[10] = 55;
+    //quickSort(V,0,11);
+    //imprimeArrayInteiros(V,11);
+
+    adicionaAVL(A,&V[0]);
+    adicionaAVL(A,&V[1]);
+    adicionaAVL(A,&V[2]);
+    adicionaAVL(A,&V[3]);
+    adicionaAVL(A,&V[4]);
+
+    preOrdemAVL(A->raiz);
 
 
 

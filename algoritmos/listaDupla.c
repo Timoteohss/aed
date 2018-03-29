@@ -27,7 +27,7 @@ listaDupla *criaListaDupla(struct operacaoDados *ope) {
     lista->topo = NULL;
     lista->fim = NULL;
 
-    if(ope == NULL) {
+    if(!ope) {
         lista->ope.cmp = comparaDados;
         lista->ope.tipoDado = voidParaInteiro;
     } else {
