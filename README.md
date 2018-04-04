@@ -16,7 +16,7 @@ Precisa de testes no Windows
 - [x] Árvore AVL
 - [ ] Árvore Rubro Negra
 - [ ] Árvore B (Quem sabe)
-- [ ] Hash
+- [ ] Tabela Hash
 - [ ] Grafo
 
 ### Algoritmos que estão nesse compilado

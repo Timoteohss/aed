@@ -10,17 +10,18 @@
 #include "algoritmos/listaSimples.h"
 #include "algoritmos/pilha.h"
 
-
 int main() {
 
 
 
 //Testes com fila e utilidades
 
-    int tamanho = 10;
+    int tamanho = 20;
     int *vetorInteiro = (int*)malloc(tamanho * sizeof(int));
     vetorInteiro = criaArrayInteiros(tamanho);
     imprimeArrayInteiros(vetorInteiro,tamanho);
+
+
 
     /*Fila *f1 = criaFila();
     printf("%d\n",filaEstaVazia(f1));
@@ -43,28 +44,23 @@ int main() {
 */
 
     arvoreAVL *A = criaArvoreAVL(NULL);
-    int *V = (int*)malloc(3*sizeof(int));
-    V[0] = 1;
-    V[1] = 2;
-    V[2] = 3;
-    V[3] = 4;
-    V[4] = 5;
+
 
 
     //imprimeArrayInteiros(V,11);
 
-    adicionaAVL(A,&vetorInteiro[0]);
-    adicionaAVL(A,&vetorInteiro[1]);
-    adicionaAVL(A,&vetorInteiro[2]);
-    adicionaAVL(A,&vetorInteiro[3]);
-    adicionaAVL(A,&vetorInteiro[4]);
+    for(int n = 0; n < tamanho; n++) {
+        printf("\n");
+        adicionaAVL(A, &vetorInteiro[n]);
+        imprimeArvoreAVL(A);
+    }
 
 
 
     imprimeArvoreAVL(A);
 
 
-    printf("\n%lu",hash_djb2((unsigned char *) "timoteo"));
+    printf("\n%lu",hash_djb2((unsigned char *) "coisa") % 13);
 
 
 

@@ -78,15 +78,15 @@ arvoreAVLNo *balanceia(arvoreAVLNo *no) {
         if(calculaAltura(no->esq->esq) > calculaAltura(no->esq->dir))
             no = rodaDir(no);
         else {
-            rodaEsq(no->esq);
-            no = rodaDir(no->dir);
+            no->esq = rodaEsq(no->esq);
+            return rodaDir(no);
         }
     } else if (calculaAltura(no->dir) - calculaAltura(no->esq) > 1) {
         if(calculaAltura(no->dir->dir) > calculaAltura(no->dir->esq))
             no = rodaEsq(no);
         else {
-            rodaDir(no->dir);
-            no = rodaEsq(no);
+            no->dir = rodaDir(no->dir);
+            return rodaEsq(no);
         }
     }
     return no;
