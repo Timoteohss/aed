@@ -43,19 +43,14 @@ int main() {
 */
 
     arvoreAVL *A = criaArvoreAVL(NULL);
-    int *V = (int*)malloc(11*sizeof(int));
-    V[0] = 50;
-    V[1] = 40;
-    V[2] = 60;
-    V[3] = 30;
-    V[4] = 70;
-    V[5] = 20;
-    V[6] = 80;
-    V[7] = 35;
-    V[8] = 65;
-    V[9] = 45;
-    V[10] = 55;
-    //quickSort(V,0,11);
+    int *V = (int*)malloc(3*sizeof(int));
+    V[0] = 1;
+    V[1] = 2;
+    V[2] = 3;
+    V[3] = 4;
+    V[4] = 5;
+
+
     //imprimeArrayInteiros(V,11);
 
     adicionaAVL(A,&V[0]);
@@ -63,6 +58,8 @@ int main() {
     adicionaAVL(A,&V[2]);
     adicionaAVL(A,&V[3]);
     adicionaAVL(A,&V[4]);
+
+
 
     preOrdemAVL(A->raiz);
 

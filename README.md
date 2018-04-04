@@ -13,7 +13,7 @@ Precisa de testes no Windows
 - [x] Fila
 - [x] Pilha
 - [x] Árvore Binária
-- [ ] Árvore AVL
+- [x] Árvore AVL
 - [ ] Árvore Rubro Negra
 - [ ] Árvore B (Quem sabe)
 - [ ] Hash
