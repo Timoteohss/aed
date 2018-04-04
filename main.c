@@ -53,16 +53,18 @@ int main() {
 
     //imprimeArrayInteiros(V,11);
 
-    adicionaAVL(A,&V[0]);
-    adicionaAVL(A,&V[1]);
-    adicionaAVL(A,&V[2]);
-    adicionaAVL(A,&V[3]);
-    adicionaAVL(A,&V[4]);
+    adicionaAVL(A,&vetorInteiro[0]);
+    adicionaAVL(A,&vetorInteiro[1]);
+    adicionaAVL(A,&vetorInteiro[2]);
+    adicionaAVL(A,&vetorInteiro[3]);
+    adicionaAVL(A,&vetorInteiro[4]);
 
 
 
-    preOrdemAVL(A->raiz);
+    imprimeArvoreAVL(A);
 
+
+    printf("\n%lu",hash_djb2((unsigned char *) "timoteo"));
 
 
 

@@ -21,6 +21,8 @@ void deletaArrayInteiros(int *vetor);
 int comparaDados(void *isso, void *aquilo);
 int voidParaInteiro(void *valor);
 
+unsigned long hash_djb2(unsigned char *str);
+
 
 
 #endif //AED_UTILIDADES_H

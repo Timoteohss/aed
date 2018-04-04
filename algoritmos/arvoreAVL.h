@@ -6,7 +6,6 @@
 #define AED_ARVOREAVL_H
 
 #include "utilidades.h"
-#include "arvoreBinaria.h"
 
 struct arvoreAVLNo {
     void *dado;
@@ -22,13 +21,20 @@ struct arvoreAVL {
 
 };
 
+
 typedef struct arvoreAVL arvoreAVL;
 typedef struct arvoreAVLNo arvoreAVLNo;
 
 
 arvoreAVL *criaArvoreAVL(struct operacaoDados *ope);
 void adicionaAVL(arvoreAVL *avl, void *dado);
+
+
+void processaNoAVL(arvoreAVLNo *no);
 void preOrdemAVL(arvoreAVLNo *no);
+void emOrdemAVL(arvoreAVLNo *no);
+void posOrdemAVL(arvoreAVLNo *no);
+void imprimeArvoreAVL(arvoreAVL *arvore);
 
 
 

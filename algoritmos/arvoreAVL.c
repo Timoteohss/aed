@@ -138,10 +138,37 @@ int calculaAltura(struct arvoreAVLNo *no) {
     return no ? no->altura : 0;
 }
 
+void processaNoAVL(arvoreAVLNo *no) {
+    printf("%d ", voidParaInteiro(no->dado));
+}
+
 void preOrdemAVL(arvoreAVLNo *no) {
     if(no) {
-        printf("%d ", voidParaInteiro(no->dado));
+        processaNoAVL(no);
         preOrdemAVL(no->esq);
         preOrdemAVL(no->dir);
     }
+}
+
+void emOrdemAVL(arvoreAVLNo *no) {
+    if(no) {
+        preOrdemAVL(no->esq);
+        processaNoAVL(no);
+        preOrdemAVL(no->dir);
+    }
+}
+
+void posOrdemAVL(arvoreAVLNo *no) {
+    if(no) {
+        preOrdemAVL(no->esq);
+        preOrdemAVL(no->dir);
+        processaNoAVL(no);
+    }
+}
+
+void imprimeArvoreAVL(arvoreAVL *arvore) {
+    printf("\nEm ordem: "); emOrdemAVL(arvore->raiz);
+    printf("\nPre ordem: "); preOrdemAVL(arvore->raiz);
+    printf("\nPos ordem: "); posOrdemAVL(arvore->raiz);
+
 }
