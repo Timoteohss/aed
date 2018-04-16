@@ -19,8 +19,7 @@ int main() {
 
 
 
-    int *vetorInteiro;
-
+/*
     //bubble sort
     FILE *f = fopen("bubblesort.dat","w");
     for(int i = 0; i < numeroTestes; i++) {
@@ -121,6 +120,7 @@ int main() {
     }
     fclose(f);
 
+ */
 
     /*
      *
@@ -133,11 +133,13 @@ int main() {
      *
      */
 
-    for(int i = 0; i < tamanhos[MAX]; i++) vetorInteiro[i] = i+1;
+    int * vetorInteiro = (int*)malloc(tamanhos[MAX] * sizeof(int));
+    for(int i = 0; i < tamanhos[MAX]; i++)
+        vetorInteiro[i] = i+1;
 
 
     //bubble sort
-    f = fopen("bubblesort_ordenado.dat","w");
+    FILE *f = fopen("bubblesort_ordenado.dat","w");
     for(int i = 0; i < numeroTestes; i++) {
         printf("\nIniciando bubble sort com %i elementos: \n", tamanhos[i]);
 
@@ -242,7 +244,8 @@ int main() {
    *
    */
 
-    for(int i = 0; i < tamanhos[MAX]; i++) vetorInteiro[i] = tamanhos[MAX] - i;
+    for(int i = 0; i < tamanhos[MAX]; i++)
+        vetorInteiro[i] = tamanhos[MAX] - i;
 
     int * coisa = vetorInteiro;
 

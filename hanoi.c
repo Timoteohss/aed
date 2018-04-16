@@ -1,59 +1,80 @@
-//
-// Created by timoteo on 26/03/18.
-//
-
-#include <stdlib.h>
 #include <stdio.h>
-#include "algoritmos/pilha.h"
+#include <stdlib.h>
+#include <string.h>
 
-void imprimeHannoi(Pilha *p1,Pilha *p2,Pilha *p3) {
-    printf("\n----------\n Torre 1: ");
-    imprimeListaSimples(p1->lista);
-    printf("\n Torre 2: ");
-    imprimeListaSimples(p2->lista);
-    printf("\n Torre 3:");
-    imprimeListaSimples(p3->lista);
-    printf("\n----------\n");
+#define clear() printf("\033[H\033[J")
+
+typedef struct no{
+    char *nome;
+    struct no *anterior;
+}no;
+
+typedef struct fila{
+    struct no *inicio;
+    struct no *fim;
+}fila;
+
+void enqueue(char *nome, fila *f1){
+    no *pessoas = (no*)malloc(sizeof(no));
+    pessoas->nome = nome;
+    if(!f1->fim && !f1->inicio){
+        f1->inicio=pessoas;
+        f1->fim=pessoas;
+    }else{
+        pessoas->anterior=f1->fim;
+        f1->fim=pessoas;
+    }
 }
 
-int main() {
+char * dequeue(fila *f1){
 
-    int qtdDiscos = 3;
-    int *vetorInteiro = (int*)malloc(qtdDiscos * sizeof(int));
-
-    Pilha *p1 = criaPilha();
-    Pilha *p2 = criaPilha();
-    Pilha *p3 = criaPilha();
-
-
-    for(int i = 0; i < qtdDiscos; i++) {
-        vetorInteiro[i] = qtdDiscos - i;
-        empilha(p1,&vetorInteiro[i]);
+    if(!f1->fim && !f1->inicio){
+        return NULL;
     }
 
-    imprimeHannoi(p1,p2,p3);
-    empilha(p2,desempilha(p1));
+    if(f1->inicio==f1->fim){
+        no *excluir = f1->fim;
+        char *nome= f1->inicio->nome;
+        free(excluir);
+        f1->fim=f1->inicio=NULL;
+        return nome;
+    }
 
-    imprimeHannoi(p1,p2,p3);
-    empilha(p3,desempilha(p1));
+    no *temp=f1->fim;
+    for(temp; temp->anterior!=f1->inicio;temp=temp->anterior);
+    char *nome=temp->anterior->nome;
+    no *excluir = temp->anterior;
+    temp->anterior=f1->inicio->anterior;
+    free(excluir);
+    f1->inicio=temp;
 
-    imprimeHannoi(p1,p2,p3);
-    empilha(p3,desempilha(p2));
+    return nome;
+}
 
-    imprimeHannoi(p1,p2,p3);
-    empilha(p2,desempilha(p1));
+fila *criar(){
+    fila *temp= (fila*)malloc(sizeof(fila));
+    temp->inicio=temp->fim=NULL;
+    return temp;
+}
 
-    imprimeHannoi(p1,p2,p3);
-    empilha(p1,desempilha(p3));
 
-    imprimeHannoi(p1,p2,p3);
-    empilha(p2,desempilha(p3));
+int main()
+{
+    char * nome1 = "Timoteo";
+    char * nome2 = "Jeferson";
+    char * nome3 = "Teste";
 
-    imprimeHannoi(p1,p2,p3);
-    empilha(p2,desempilha(p1));
+    fila * f1 = criar();
 
-    imprimeHannoi(p1,p2,p3);
+    enqueue(nome1,f1);
+    enqueue(nome2,f1);
+    printf("\n%s",dequeue(f1));
 
+    printf("\n%s",dequeue(f1));
+    enqueue(nome3,f1);
+    printf("\n%s",dequeue(f1));
+
+    exit(1);
 
 
 }
