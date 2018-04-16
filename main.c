@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "algoritmos/utilidades.h"
+#include "algoritmos/tabelaHash.h"
 #include "algoritmos/arvoreAVL.h"
 #include "algoritmos/metodosOrdenacao.h"
 #include "algoritmos/arvoreBinaria.h"
@@ -10,24 +11,27 @@
 #include "algoritmos/listaSimples.h"
 #include "algoritmos/pilha.h"
 
+#if 0
 int main() {
-
 
 
 //Testes com fila e utilidades
 
-    int tamanho = 20;
+   /* int tamanho = 1000000;
     int *vetorInteiro = (int*)malloc(tamanho * sizeof(int));
     vetorInteiro = criaArrayInteiros(tamanho);
     imprimeArrayInteiros(vetorInteiro,tamanho);
+    mergeSort(vetorInteiro,0,tamanho);
+    imprimeArrayInteiros(vetorInteiro,tamanho);*/
 
-
-
-    /*Fila *f1 = criaFila();
+ /*   Fila *f1 = criaFila();
     printf("%d\n",filaEstaVazia(f1));
 
 
     enfilera(f1,&vetorInteiro[66]);
+    enfilera(f1,&vetorInteiro[67]);
+    enfilera(f1,&vetorInteiro[68]);
+    enfilera(f1,&vetorInteiro[69]);
     imprimeListaDupla(f1->lista);
     printf("%d\n",filaEstaVazia(f1));
     desenfila(f1);
@@ -42,12 +46,9 @@ int main() {
     selectionSort(vetorInteiro,tamanho);
     imprimeArrayInteiros(vetorInteiro,tamanho);
 */
+/*
 
     arvoreAVL *A = criaArvoreAVL(NULL);
-
-
-
-    //imprimeArrayInteiros(V,11);
 
     for(int n = 0; n < tamanho; n++) {
         printf("\n");
@@ -61,6 +62,7 @@ int main() {
 
 
     printf("\n%lu",hash_djb2((unsigned char *) "coisa") % 13);
+*/
 
 
 
@@ -108,3 +110,6 @@ int main() {
 
 
 }
+
+#else
+

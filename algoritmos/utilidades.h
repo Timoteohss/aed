@@ -5,7 +5,7 @@
 #ifndef AED_UTILIDADES_H
 #define AED_UTILIDADES_H
 
-#define RAND_MAX 4096
+#define RAND_MAX 2000000
 
 struct operacaoDados {
     int (*cmp)(void *isso, void *aquilo);

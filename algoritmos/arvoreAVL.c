@@ -46,6 +46,8 @@ void adicionaAVL(arvoreAVL *avl, void *dado) {
         return;
     }
 
+    if(avl->ope.cmp(no->dado,dado) == 0) return; //Valor já existe na árvore
+
     while(avl->ope.cmp(no->dado,dado) != 0) {
         if(avl->ope.cmp(no->dado,dado) > 0) {
             if(no->esq) no = no->esq;
@@ -171,4 +173,19 @@ void imprimeArvoreAVL(arvoreAVL *arvore) {
     printf("\nPre ordem: "); preOrdemAVL(arvore->raiz);
     printf("\nPos ordem: "); posOrdemAVL(arvore->raiz);
 
+}
+
+arvoreAVLNo *buscaAVL(arvoreAVL *avl, void *dado) {
+    arvoreAVLNo *no = avl->raiz;
+
+    if(!no) return NULL;
+
+    while(no) {
+        if (avl->ope.cmp(no->dado, dado) < 0)
+            no = no->esq;
+        else if(avl->ope.cmp(no->dado,dado) > 0)
+            no = no->dir;
+        else
+            return no;
+    }
 }
