@@ -8,6 +8,12 @@
 #include "metodosOrdenacao.h"
 #include "utilidades.h"
 
+void heapfica(int *A, int tamanho);
+
+void bdown(int *A, int tamanho, int p);
+
+int getFilhoEsq(int p);
+
 void insertionSort(int *A, int tamanho) {
     int i, j;
 
@@ -93,37 +99,68 @@ void mergeSort(int *A, int baixo, int alto) {
     }
 }
 
-int escolhePivo (int baixo, int alto) { return alto; }
+void qSort(int *A, int baixo, int alto) {
+    if(baixo >= alto) return;
 
-int particiona(int *A, int baixo, int alto) {
-    int i;
-    int indexPivo = escolhePivo(baixo,alto);
-    int valorPivo = A[indexPivo];
-    int posicao = baixo;
+    int esq, dir, pivo;
+    pivo = A[baixo +(alto - baixo)/2];
+    esq = baixo-1;
+    dir = alto+1;
 
-    troca(&A[alto], &A[indexPivo]);
-
-    for(i = baixo; i < alto; i++) {
-        if(A[i] < valorPivo) {
-            troca(&A[i], &A[posicao]);
-            posicao++;
-        }
+    while(esq <= dir) {
+        while(A[++esq] < pivo);
+        while(A[--dir] > pivo);
+        if(esq >= dir) break;
+        troca(&A[esq], &A[dir]);
     }
 
-    troca(&A[posicao], &A[indexPivo]);
-    return posicao;
-
-
-
+    qSort(A, baixo, dir);
+    qSort(A, dir + 1, alto);
 }
 
 void quickSort(int *A, int baixo, int alto) {
-    if(baixo < alto) {
-        int p = particiona(A,baixo,alto);
-        quickSort(A, baixo, p - 1);
-        quickSort(A, p + 1, alto);
+    qSort(A, baixo, alto - 1);
+}
+
+void heapSort(int *A, int tamanho) {
+    int i;
+
+    heapfica(A,tamanho);
+
+
+    for(i = 0; i < tamanho; i++) {
+        troca(&A[0], &A[tamanho - 1 - i]);
+        bdown(A, tamanho - i - 1, 0);
+    }
+
+}
+
+void heapfica(int *A, int tamanho) {
+    int pos = tamanho - 1;
+    while (pos >= 0) {
+        bdown(A,tamanho,pos);
+        pos--;
     }
 }
 
+void bdown(int *A, int tamanho, int p) {
+    int filho_esq = getFilhoEsq(p);
+    int filho_dir = filho_esq + 1;
+    int filho_max;
+
+    if (filho_esq >= tamanho) return;
+
+    if(filho_dir >= tamanho) filho_max = filho_esq;
+    else filho_max = (A[filho_esq] >= A[filho_dir] ? filho_esq : filho_dir);
+
+    if(A[p] < A[filho_max]) {
+        troca(&A[p],&A[filho_max]);
+        bdown(A,tamanho,filho_max);
+    }
+}
+
+int getFilhoEsq(int p) {
+    return 2*p + 1;
+}
 
 

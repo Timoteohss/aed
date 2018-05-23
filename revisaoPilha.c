@@ -5,80 +5,92 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct no {
+typedef struct quarto {
     int numero;
-    struct no *anterior;
-    struct no *proximo;
-    struct no *pai;
-}no,*pno;
-
-typedef struct no no,*pno;
-
-struct pilha {
-    pno topo;
+    struct quarto *proximo;
 
 };
 
-typedef struct pilha pilha, *ppilha;
+typedef struct quarto quarto;
 
-void push(ppilha p, int valor) {
-    pno notemporario = (pno)malloc(sizeof(no));
-    notemporario->numero = valor;
-    notemporario->anterior = p->topo;
-    p->topo = notemporario;
+struct hotel {
+    quarto *topo;
+
+};
+
+typedef struct hotel hotel;
+
+void ocupa(hotel* h, int numero) {
+    quarto* temp = (quarto*)malloc(sizeof(quarto));
+    temp->numero = numero;
+    //Detalhes de qum vai ocupar
+
+    temp->proximo = h->topo;
+    h->topo = temp;
 }
 
-int pop(ppilha p) {
-    if(!p->topo) return NULL;
-    else {
-        pno temp = p->topo;
-        p->topo = temp->anterior;
-        int numero = temp->numero;
-        free(temp);
-        return numero;
-    }
-}
+quarto * busca(hotel *h,int numero) {
+    quarto * aux = h->topo;
 
-void imprimePilha(ppilha p) {
-    pno temp = p->topo;
+    aux = aux->proximo;
+    do{
+        if(!aux->proximo) return NULL;
+        if(aux->proximo->numero == numero) return aux;
+        aux = aux->proximo;
+    }while(aux);
 
-    for(temp ; temp->anterior ; temp = temp->anterior) {
-        printf("%i ",temp->numero);
-    }
-    printf("%i \n", temp->numero);
-}
-
-void imprimeHanoi(ppilha p1,ppilha p2,ppilha p3) {
-    printf("\n---------\n");
-    imprimePilha(p1);
-    imprimePilha(p2);
-    imprimePilha(p3);
-    printf("\n---------");
 
 }
 
+int desocupa(hotel * h, int numero) {
+    if(!h) { printf("\nTodos os quartos estao desocupados!\n"); return -1;}
 
-ppilha criaPilha() {
-    ppilha aux = (pilha*)malloc(sizeof(pilha));
+    quarto *ant = busca(h,numero);
+    if(!ant) { printf("\nQuarto nao encontrado / ocupado!\n"); return -1; }
+
+    printf("\nRemovendo quarto numero: %d\n",numero);
+    quarto *desal = ant->proximo;
+    ant->proximo = desal->proximo;
+    free(desal);
+}
+
+void imprimeQuartosOcupados(hotel* h) {
+    quarto * aux = h->topo;
+    for(aux ; aux->proximo != NULL;aux=aux->proximo)
+        printf("%d\t",aux->numero);
+    printf("%d\n",aux->numero);
+
+}
+
+
+hotel * criaHotel() {
+    hotel* aux = (hotel*)malloc(sizeof(hotel));
     aux->topo = NULL;
     return aux;
 }
 
 int main() {
-    ppilha p1 = criaPilha();
-    ppilha p2 = criaPilha();
-    ppilha p3 = criaPilha();
+    hotel* h1 = criaHotel();
 
-    push(p1,7);
-    push(p1,6);
-    push(p1,5);
-    push(p1,4);
-    push(p1,3);
-    push(p2,pop(p1));
-    push(p3,pop(p1));
+    ocupa(h1,101);
+    ocupa(h1,102);
+    ocupa(h1,203);
+    ocupa(h1,204);
+    ocupa(h1,307);
+    ocupa(h1,205);
+    ocupa(h1,206);
+    ocupa(h1,104);
 
-    imprimeHanoi(p1,p2,p3);
-    imprimeHanoi(p1,p2,p3);
+    imprimeQuartosOcupados(h1);
+    desocupa(h1,302);
+    desocupa(h1,102);
+    desocupa(h1,302);
+
+
+
+
+
+
 
 
 }

@@ -11,18 +11,20 @@
 #include "algoritmos/listaSimples.h"
 #include "algoritmos/pilha.h"
 
-#if 0
+
 int main() {
+
+
 
 
 //Testes com fila e utilidades
 
-   /* int tamanho = 1000000;
+   int tamanho = 15;
     int *vetorInteiro = (int*)malloc(tamanho * sizeof(int));
     vetorInteiro = criaArrayInteiros(tamanho);
     imprimeArrayInteiros(vetorInteiro,tamanho);
-    mergeSort(vetorInteiro,0,tamanho);
-    imprimeArrayInteiros(vetorInteiro,tamanho);*/
+    heapSort(vetorInteiro,tamanho);
+    imprimeArrayInteiros(vetorInteiro,tamanho);
 
  /*   Fila *f1 = criaFila();
     printf("%d\n",filaEstaVazia(f1));
@@ -46,7 +48,7 @@ int main() {
     selectionSort(vetorInteiro,tamanho);
     imprimeArrayInteiros(vetorInteiro,tamanho);
 */
-/*
+
 
     arvoreAVL *A = criaArvoreAVL(NULL);
 
@@ -57,12 +59,8 @@ int main() {
     }
 
 
+    //printf("\n%lu",hash_djb2((unsigned char *) "coisa") % 13);
 
-    imprimeArvoreAVL(A);
-
-
-    printf("\n%lu",hash_djb2((unsigned char *) "coisa") % 13);
-*/
 
 
 
@@ -111,5 +109,5 @@ int main() {
 
 }
 
-#else
+
 
